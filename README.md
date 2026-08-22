@@ -41,3 +41,13 @@ car-rental-application/
 ├── App.tsx               # Entry point of the application
 ├── app.json              # Expo configuration file
 └── tsconfig.json         # TypeScript compiler configuration
+```
+---
+
+## 🚀 Getting Started
+
+**Prerequisites**
+* **Node.js** (v18 or higher)
+* **VS Code**
+* **Expo Go App** installed on your mobile device
+* **Google AI** Studio API Key
