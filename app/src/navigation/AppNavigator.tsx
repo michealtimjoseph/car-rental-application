@@ -1,4 +1,4 @@
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, NavigationIndependentTree } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { useAuth } from '@/src/context/AuthContext';
@@ -24,15 +24,17 @@ export default function AppNavigator() {
   const { token } = useAuth();
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName={token ? 'Home' : 'Login'}>
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Register" component={RegisterScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="CarDetails" component={CarDetailsScreen} />
-        <Stack.Screen name="Bookings" component={BookingsScreen} />
-        <Stack.Screen name="Profile" component={ProfileScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <NavigationIndependentTree>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName={token ? 'Home' : 'Login'}>
+          <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="Register" component={RegisterScreen} />
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="CarDetails" component={CarDetailsScreen} />
+          <Stack.Screen name="Bookings" component={BookingsScreen} />
+          <Stack.Screen name="Profile" component={ProfileScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </NavigationIndependentTree>
   );
 }
