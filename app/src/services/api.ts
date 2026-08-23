@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://10.0.2.2:8000/api',
+  // Pointing to your local machine's IP address on the Wi-Fi network
+  baseURL: 'http://192.168.254.101:8000/api',
   timeout: 15000,
   headers: {
     Accept: 'application/json',
