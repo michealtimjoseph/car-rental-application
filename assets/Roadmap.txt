@@ -1,0 +1,32 @@
+Optimized Academic Roadmap
+
+Phase 1 — Stack & Architecture Setup (1–2 Days)
+Configure Expo (TypeScript) frontend and Laravel (PHP) backend in separate directories inside the repository.
+Connect Laravel to PostgreSQL (car_rental_db) and verify database connectivity.
+Set up EXPO_PUBLIC_GEMINI_API_KEY and test basic client initialization.
+
+Phase 2 — Core UI & Navigation Skeleton (2–3 Days)
+Build Expo navigation structure (Tabs: Home, Search, Bookings, Vehicle Fleet, AI Assistant).
+Create shared UI elements (CarCard, StatusBadge, MetricWidget).
+
+Phase 3 — Database Schema & Laravel REST API (3–4 Days)
+Execute migrations for users, cars, rentals, and iot_telematics tables in PostgreSQL.
+Build Laravel API endpoints (GET /api/cars, POST /api/rentals, POST /api/telematics).
+Seed realistic mock data (fleet cars, active rentals, location coordinates).
+
+Phase 4 — Gemini AI Features (3–5 Days)
+Smart Search: Convert freeform user prompts into structured filters (e.g., "4-door SUV for mountain trip" → { category: "SUV", min_seats: 5 }).
+Vision Damage Inspection: Upload photo via Expo Camera → Gemini Vision parses pre/post rental damage notes.
+
+Phase 5 — IoT Telematics Integration (3–5 Days) (Track 1 Focus)
+Build ESP32 firmware (C++) or a local python/script telemetry simulator.
+Transmit telemetry logs (latitude/longitude, fuel level, engine status, raw JSON) to Laravel POST /api/telematics.
+Render real-time vehicle diagnostics and map/location data inside the Expo app.
+
+Phase 6 — Booking Flow & Mock Checkout (2–3 Days)
+Date/time picker, cost calculation engine, reservation submission to Laravel API.
+Simulated payment confirmation screen (Mock GCash / Cash on Pickup).
+
+Phase 7 — Defense Preparation & Seed Data (1–2 Days)
+Populate database with live demo records.
+Prepare end-to-end user story for presentation: Search via AI → Book Vehicle → Real-Time IoT Telematics Stream → Camera Damage Inspection.
