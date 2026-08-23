@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Car extends Model
 {
@@ -35,5 +36,10 @@ class Car extends Model
     public function iotTelematics(): HasMany
     {
         return $this->hasMany(IotTelematic::class);
+    }
+
+    public function latestTelematics(): HasOne
+    {
+        return $this->hasOne(IotTelematic::class)->latestOfMany();
     }
 }
