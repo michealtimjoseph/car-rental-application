@@ -27,11 +27,16 @@ export default function HomeScreen({ navigation }: Props) {
     setLoading(true);
     setError(null);
     try {
-      // Execute GET request to fetch fleet data
       const response = await api.get('/cars');
-      
-      // Laravel often wraps JSON arrays in a 'data' object. This handles both formats.
-      const carData = response.data.data ? response.data.data : response.data;
+      const payload = response.data ?? {};
+      const carData = Array.isArray(payload.data)
+        ? payload.data
+        : Array.isArray(payload)
+          ? payload
+          : Array.isArray(payload.cars)
+            ? payload.cars
+            : [];
+
       setCars(carData);
     } catch (err) {
       console.error('API Error:', err);

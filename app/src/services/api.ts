@@ -1,8 +1,22 @@
 import axios from 'axios';
+import { Platform } from 'react-native';
+
+const getApiBaseUrl = () => {
+  const configuredUrl = process.env.EXPO_PUBLIC_API_URL;
+
+  if (configuredUrl) {
+    return configuredUrl.replace(/\/?$/, '');
+  }
+
+  if (Platform.OS === 'android') {
+    return 'http://10.0.2.2:8000/api';
+  }
+
+  return 'http://localhost:8000/api';
+};
 
 const api = axios.create({
-  // Pointing to your local machine's IP address on the Wi-Fi network
-  baseURL: 'http://192.168.254.101:8000/api',
+  baseURL: getApiBaseUrl(),
   timeout: 15000,
   headers: {
     Accept: 'application/json',
